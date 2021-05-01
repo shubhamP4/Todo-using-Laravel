@@ -56,7 +56,7 @@
                         <form action="{{ route('todo.destroy',$task->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="remove-item btn btn-danger btn-xs pull-right" style="margin-top: -30px;">
+                        <button type="submit" class="remove-item btn btn-danger btn-xs pull-right"  style="margin-top: -30px;">
                         <i class="fa fa-remove"></i>
                         </button>
                         </form>
