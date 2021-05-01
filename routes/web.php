@@ -14,4 +14,4 @@ use App\Http\Controllers\Todo\TodoController;
 |
 */
 //Todo Resource Controller
-Route::resource('/',TodoController::class);
+Route::resource('/todo',TodoController::class);

@@ -43,7 +43,7 @@ class TodoController extends Controller
         $save_task->name = $request->name;
         $save_task->status = 1;
         $save_task->save();
-        return redirect('/')->with('status','Task has been added');
+        return redirect('/todo')->with('status','Task has been added');
     }
 
     /**
@@ -54,7 +54,7 @@ class TodoController extends Controller
      */
     public function show($id)
     {
-        //
+      //
     }
 
     /**
@@ -75,9 +75,12 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        dd('hello');
+       $find_todo = Todo::find($id);
+       $find_todo->status = 2;
+       $find_todo->update();
+       return redirect('/todo')->with('status', 'Task has been completed');
     }
 
     /**
@@ -88,6 +91,7 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete_todo = Todo::find($id)->delete();
+        return redirect('/todo')->with('status', 'Task has been deleted successfully');
     }
 }
